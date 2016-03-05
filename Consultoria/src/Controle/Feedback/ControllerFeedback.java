@@ -1,11 +1,10 @@
 package Controle.Feedback;
-import Controle.Notificacao.ControllerNotificacao;
-import Dominio.*;
-import Dominio.Pergunta.Pergunta;
-import Dominio.Usuario.Usuario;
-
 import java.util.Date;
 import java.util.List;
+
+import Controle.Notificacao.ControllerNotificacao;
+import Dominio.Pergunta.Pergunta;
+import Dominio.Usuario.Usuario;
 
 /**
  * @author Leandro

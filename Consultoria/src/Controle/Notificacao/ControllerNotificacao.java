@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class ControllerNotificacao {
 
+
 	public ControllerNotificacao(){
 
 	}
@@ -26,7 +27,6 @@ public class ControllerNotificacao {
 	 * @param idNotificacao
 	 */
 	public Notificacao buscarNotificacaoPergunta(long idNotificacao){
-		long xidNotificacao =  idNotificacao;
 		return null;
 	}
 

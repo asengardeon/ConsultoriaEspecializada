@@ -10,6 +10,22 @@ public class Anexo {
 	private String anexo;
 	private long id;
 
+	public String getAnexo() {
+		return anexo;
+	}
+
+	public void setAnexo(String anexo) {
+		this.anexo = anexo;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public Anexo(){
 
 	}

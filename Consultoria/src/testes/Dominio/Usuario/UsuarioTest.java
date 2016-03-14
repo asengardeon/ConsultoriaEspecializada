@@ -248,7 +248,7 @@ public class UsuarioTest {
 	@Test
 	public void testSetTelefone2() throws Exception {
 		u.setTelefone2(88552);
-		assertEquals(u.getTelefone(), 88552);
+		assertEquals(u.getTelefone2(), 88552);
 		
 	}
 

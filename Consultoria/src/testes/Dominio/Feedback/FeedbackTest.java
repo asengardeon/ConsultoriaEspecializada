@@ -3,19 +3,48 @@
  */
 package testes.Dominio.Feedback;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+
+import Dominio.Feedback.Feedback;
+import Dominio.Pergunta.Pergunta;
+import Dominio.Resposta.Resposta;
+import Dominio.Usuario.Usuario;
 
 /**
  * @author Leandro
  *
  */
 public class FeedbackTest {
-		/**
+		
+	private Feedback f;
+
+
+	@Before
+	public void setup() {
+		f = new Feedback();
+		
+	}
+	
+	@After
+	public void tearDown(){
+		f = null;
+	}
+	
+	/**
 	 * Test method for {@link Dominio.Feedback.Feedback#getDescricao()}.
 	 */
 	@Test
 	public void testSetGetDescricao() throws Exception {
-		throw new RuntimeException("not yet implemented");
+       f.setDescricao("Qualquer descrição");
+       assertEquals(f.getDescricao(), "Qualquer descrição");
 	}
 
 	
@@ -24,14 +53,27 @@ public class FeedbackTest {
 	 */
 	@Test
 	public void testSetGetDestinatarios() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Usuario u = new Usuario();
+		u.setNome("nome do teste");
+		ArrayList<Usuario> lista = new ArrayList<Usuario>();
+		lista.add(u);
+		f.setDestinatarios(lista);
+		
+		List list = f.getDestinatarios();
+		assertEquals(lista.size(), 1);
+		
+		u = (Usuario) list.get(0);
+		assertEquals(u.getNome(), "nome do teste");
 	}
    /**
 	 * Test method for {@link Dominio.Feedback.Feedback#getHorario()}.
 	 */
 	@Test
 	public void testSetGetHorario() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		@SuppressWarnings("deprecation")
+		Date d = new Date(2016, 03, 9);
+		f.setHorario(d);
+		assertEquals(f.getHorario(), d);
 	}
 
 	/**
@@ -39,7 +81,8 @@ public class FeedbackTest {
 	 */
 	@Test
 	public void testSetGetId() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		f.setId(10);
+		assertEquals(f.getId(), 10);
 	}
 
 	
@@ -48,7 +91,11 @@ public class FeedbackTest {
 	 */
 	@Test
 	public void testSetGetPergunta() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Pergunta p = new Pergunta();
+		p.setDescricao("nova descrição");
+		f.setPergunta(p);
+		Pergunta p2 = f.getPergunta();
+		assertEquals(p2.getDescricao(), "nova descrição");
 	}
 
 	
@@ -57,7 +104,10 @@ public class FeedbackTest {
 	 */
 	@Test
 	public void testSetGetRemetente() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Usuario u = new Usuario();
+		u.setNome("nome do remetente");
+		f.setRemetente(u);
+		assertEquals(f.getRemetente().getNome(), "nome do remetente");
 	}
 
 }

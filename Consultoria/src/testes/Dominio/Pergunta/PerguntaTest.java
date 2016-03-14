@@ -3,7 +3,21 @@
  */
 package testes.Dominio.Pergunta;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+
+import Dominio.Anexo.Anexo;
+import Dominio.Feedback.Feedback;
+import Dominio.Pergunta.Pergunta;
+import Dominio.Pergunta.Status;
+import Dominio.Resposta.Resposta;
+import Dominio.Usuario.Usuario;
 
 /**
  * @author Leandro
@@ -11,12 +25,37 @@ import org.junit.Test;
  */
 public class PerguntaTest {
 
+	private Pergunta p;
+	
+	
+	@Before
+	public void setup() {
+		p = new Pergunta();
+		
+	}
+	
+	@After
+	public void tearDown(){
+		p = null;
+	}
+	
+
 	/**
 	 * Test method for {@link Dominio.Pergunta.Pergunta#getAnexo()}.
 	 */
 	@Test
 	public void testSetGetAnexo() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Anexo a = new Anexo();
+		a.setAnexo("nome do Anexo");
+		ArrayList<Anexo> lista = new ArrayList<Anexo>();
+		lista.add(a);
+		p.setAnexo(lista);
+		
+		List list = p.getAnexo();
+		assertEquals(lista.size(), 1);
+		
+		a = (Anexo) list.get(0);
+		assertEquals(a.getAnexo(), "nome do Anexo");
 	}
 
 	
@@ -25,7 +64,10 @@ public class PerguntaTest {
 	 */
 	@Test
 	public void testSetGetAutor() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Usuario u = new Usuario();
+		u.setNome("nome do autor");
+		p.setAutor(u);
+		assertEquals(p.getAutor().getNome(), "nome do autor");
 	}
 
 	
@@ -34,7 +76,8 @@ public class PerguntaTest {
 	 */
 	@Test
 	public void testSetGetDescricao() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		p.setDescricao("Qualquer descrição");
+	    assertEquals(p.getDescricao(), "Qualquer descrição");
 	}
 
 	
@@ -43,7 +86,8 @@ public class PerguntaTest {
 	 */
 	@Test
 	public void testSetGetId() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		p.setId(10);
+		assertEquals(p.getId(), 10);
 	}
 
 	
@@ -52,7 +96,17 @@ public class PerguntaTest {
 	 */
 	@Test
 	public void testSetGetRespostas() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Resposta a = new Resposta();
+		a.setDescricao("Texto da resposta");
+		ArrayList<Resposta> lista = new ArrayList<Resposta>();
+		lista.add(a);
+		p.setRespostas(lista);
+		
+		List list = p.getRespostas();
+		assertEquals(lista.size(), 1);
+		
+		a = (Resposta) list.get(0);
+		assertEquals(a.getDescricao(), "Texto da resposta");
 	}
 
 	
@@ -61,7 +115,9 @@ public class PerguntaTest {
 	 */
 	@Test
 	public void testSetGetStatus() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Status st = Status.gerada;
+		p.setStatus(st);
+		assertEquals(p.getStatus(), Status.gerada);
 	}
 
 	
@@ -70,7 +126,9 @@ public class PerguntaTest {
 	 */
 	@Test
 	public void testSetGetTitulo() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		String texto = "Texto de teste";
+		p.setTitulo(texto);
+		assertEquals(p.getTitulo(), texto);
 	}
 
 	/**
@@ -78,22 +136,19 @@ public class PerguntaTest {
 	 */
 	@Test
 	public void testSetGetValor() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		p.setValor(10.7);
+		assertEquals(p.getValor(), 10.7, 0);
 	}
-	/**
-	 * Test method for {@link Dominio.Pergunta.Pergunta#Pergunta()}.
-	 */
-	@Test
-	public void testPergunta() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
+
 
 	/**
 	 * Test method for {@link Dominio.Pergunta.Pergunta#alterarStatus(Dominio.Pergunta.Status)}.
 	 */
 	@Test
 	public void testAlterarStatus() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Status st = Status.gerada;
+		p.setStatus(st);
+		assertEquals(p.getStatus(), Status.gerada);
 	}
 
 	/**
@@ -101,7 +156,12 @@ public class PerguntaTest {
 	 */
 	@Test
 	public void testAnexarDocumento() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Anexo a = new Anexo();
+		a.setAnexo("nome do Anexo");
+		p.anexarDocumento(a);
+		assertEquals(p.getAnexo().size(), 1);
+		a = p.getAnexo().get(0);
+		assertEquals(a.getAnexo(), "nome do Anexo");
 	}
 
 }

@@ -3,7 +3,19 @@
  */
 package testes.Dominio.Resposta;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+
+import Dominio.Anexo.Anexo;
+import Dominio.Pergunta.Pergunta;
+import Dominio.Resposta.Resposta;
+import Dominio.Usuario.Usuario;
 
 /**
  * @author Leandro
@@ -11,54 +23,55 @@ import org.junit.Test;
  */
 public class RespostaTest {
 
+	private Resposta r;
 
+	@Before
+	public void setup() {
+		r = new Resposta();
+	}
 
-/**
-	 * Test method for {@link Dominio.Resposta.Resposta#getAnexo()}.
-	 */
-	@Test
-	public void testGetAnexo() throws Exception {
-		throw new RuntimeException("not yet implemented");
+	@After
+	public void tearDown() {
+		r = null;
 	}
 
 	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#setAnexo(java.util.List)}.
+	 * Test method for {@link Dominio.Resposta.Resposta#getAnexo()}.
 	 */
 	@Test
-	public void testSetAnexo() throws Exception {
-		throw new RuntimeException("not yet implemented");
+	public void testGetSetAnexo() throws Exception {
+		Anexo a = new Anexo();
+		a.setAnexo("nome do Anexo");
+		ArrayList<Anexo> lista = new ArrayList<Anexo>();
+		lista.add(a);
+		r.setAnexo(lista);
+		
+		List list = r.getAnexo();
+		assertEquals(lista.size(), 1);
+		
+		a = (Anexo) list.get(0);
+		assertEquals(a.getAnexo(), "nome do Anexo");
 	}
 
 	/**
 	 * Test method for {@link Dominio.Resposta.Resposta#getAutor()}.
 	 */
 	@Test
-	public void testGetAutor() throws Exception {
-		throw new RuntimeException("not yet implemented");
+	public void testGetSetAutor() throws Exception {
+		Usuario u = new Usuario();
+		u.setNome("nome do autor");
+		r.setAutor(u);
+		assertEquals(r.getAutor().getNome(), "nome do autor");
 	}
 
-	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#setAutor(Dominio.Usuario.Usuario)}.
-	 */
-	@Test
-	public void testSetAutor() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
 
 	/**
 	 * Test method for {@link Dominio.Resposta.Resposta#getDescricao()}.
 	 */
 	@Test
-	public void testGetDescricao() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#setDescricao(java.lang.String)}.
-	 */
-	@Test
-	public void testSetDescricao() throws Exception {
-		throw new RuntimeException("not yet implemented");
+	public void testGetSetDescricao() throws Exception {
+		r.setDescricao("Qualquer descrição");
+		assertEquals(r.getDescricao(), "Qualquer descrição");
 	}
 
 	/**
@@ -66,7 +79,8 @@ public class RespostaTest {
 	 */
 	@Test
 	public void testIsEscolhida() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		r.setEscolhida(true);
+		assertEquals(r.isEscolhida(), true);
 	}
 
 	/**
@@ -74,119 +88,62 @@ public class RespostaTest {
 	 */
 	@Test
 	public void testSetEscolhida() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		r.setEscolhida(true);
+		assertEquals(r.isEscolhida(), true);
 	}
 
 	/**
 	 * Test method for {@link Dominio.Resposta.Resposta#getId()}.
 	 */
 	@Test
-	public void testGetId() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#setId(long)}.
-	 */
-	@Test
-	public void testSetId() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#getNumeroHoras()}.
-	 */
-	@Test
-	public void testGetNumeroHoras() throws Exception {
-		throw new RuntimeException("not yet implemented");
+	public void testGetSetId() throws Exception {
+		r.setId(10);
+		assertEquals(r.getId(), 10);
 	}
 
 	/**
 	 * Test method for {@link Dominio.Resposta.Resposta#setNumeroHoras(double)}.
 	 */
 	@Test
-	public void testSetNumeroHoras() throws Exception {
-		throw new RuntimeException("not yet implemented");
+	public void testGetSetNumeroHoras() throws Exception {
+		r.setNumeroHoras(71.8);
+		assertEquals(r.getNumeroHoras(), 71.8, 0);
 	}
 
 	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#getPergunta()}.
+	 * Test method for
+	 * {@link Dominio.Resposta.Resposta#setPergunta(Dominio.Pergunta.Pergunta)}.
 	 */
 	@Test
-	public void testGetPergunta() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#setPergunta(Dominio.Pergunta.Pergunta)}.
-	 */
-	@Test
-	public void testSetPergunta() throws Exception {
-		throw new RuntimeException("not yet implemented");
+	public void testGetSetPergunta() throws Exception {
+		Pergunta p = new Pergunta();
+		p.setDescricao("nova descrição");
+		r.setPergunta(p);
+		Pergunta p2 = r.getPergunta();
+		assertEquals(p2.getDescricao(), "nova descrição");
 	}
 
 	/**
 	 * Test method for {@link Dominio.Resposta.Resposta#getValor()}.
 	 */
 	@Test
-	public void testGetValor() throws Exception {
-		throw new RuntimeException("not yet implemented");
+	public void testGetSetValor() throws Exception {
+		 r.setValor(9545.554);
+	     assertEquals(r.getDescricao(), 9545.554);
 	}
 
 	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#setValor(double)}.
-	 */
-	@Test
-	public void testSetValor() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#getM_Anexo()}.
-	 */
-	@Test
-	public void testGetM_Anexo() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#setM_Anexo(Dominio.Anexo.Anexo)}.
-	 */
-	@Test
-	public void testSetM_Anexo() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#getM_Usuario()}.
-	 */
-	@Test
-	public void testGetM_Usuario() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#setM_Usuario(Dominio.Usuario.Usuario)}.
-	 */
-	@Test
-	public void testSetM_Usuario() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#Resposta()}.
-	 */
-	@Test
-	public void testResposta() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Dominio.Resposta.Resposta#anexarDocumento(Dominio.Anexo.Anexo)}.
+	 * Test method for
+	 * {@link Dominio.Resposta.Resposta#anexarDocumento(Dominio.Anexo.Anexo)}.
 	 */
 	@Test
 	public void testAnexarDocumento() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Anexo a = new Anexo();
+		a.setAnexo("nome do Anexo");
+		r.anexarDocumento(a);
+		assertEquals(r.getAnexo().size(), 1);
+		a = r.getAnexo().get(0);
+		assertEquals(a.getAnexo(), "nome do Anexo");
 	}
-
+	
 }

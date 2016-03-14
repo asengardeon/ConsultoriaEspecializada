@@ -3,7 +3,16 @@
  */
 package testes.Dominio.Pergunta;
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+
+import Dominio.Feedback.Feedback;
+import Dominio.Pergunta.Regra;
+import Dominio.Pergunta.Tarifa;
+import Dominio.Pergunta.TipoValor;
 
 /**
  * @author Leandro
@@ -11,12 +20,29 @@ import org.junit.Test;
  */
 public class RegraTest {
 
+	private Regra r;
+
+	
+	@Before
+	public void setup() {
+		r = new Regra();
+		
+	}
+	
+	@After
+	public void tearDown(){
+		r = null;
+	}
+	
+	
+	
 	/**
 	 * Test method for {@link Dominio.Pergunta.Regra#getCondicao1()}.
 	 */
 	@Test
 	public void testSetGetCondicao1() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		r.setCondicao1(TipoValor.horasTrabalhadas);
+		assertEquals(r.getCondicao1(), TipoValor.horasTrabalhadas);
 	}
 
 	
@@ -25,7 +51,9 @@ public class RegraTest {
 	 */
 	@Test
 	public void testSetGetCondicao2() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		r.setCondicao2(17.0);
+		assertEquals(r.getCondicao2(), 17.0, 0);
+		
 	}
 
 	
@@ -34,7 +62,8 @@ public class RegraTest {
 	 */
 	@Test
 	public void testSetGetId() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		r.setId(10);
+		assertEquals(r.getId(), 10);
 	}
 
 
@@ -43,21 +72,26 @@ public class RegraTest {
 	 */
 	@Test
 	public void testSetGetOperador() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		r.setOperador('c');
+		assertEquals(r.getOperador(), 'c');
 	}
 	/**
 	 * Test method for {@link Dominio.Pergunta.Regra#getOperadorLogico()}.
 	 */
 	@Test
 	public void testSetGetOperadorLogico() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		r.setOperadorLogico('x');
+		assertEquals(r.getOperadorLogico(), 'x');
 	}
 	/**
 	 * Test method for {@link Dominio.Pergunta.Regra#getTarifa()}.
 	 */
 	@Test
 	public void testSetGetTarifa() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Tarifa t = new Tarifa();
+		t.setDescricao("description");
+		r.setTarifa(t);
+		assertEquals(r.getTarifa().getDescricao(), "description");
 	}
 
 	/**
@@ -65,7 +99,8 @@ public class RegraTest {
 	 */
 	@Test
 	public void testSetGetValorPercentual() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		r.setValorPercentual(13.9);
+		assertEquals(r.getValorPercentual(), 13.9, 0);
 	}
 
 }

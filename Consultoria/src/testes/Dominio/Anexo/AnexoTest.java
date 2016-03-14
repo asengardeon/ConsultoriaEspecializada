@@ -5,9 +5,16 @@ package testes.Dominio.Anexo;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import Dominio.Anexo.Anexo;
+import Dominio.Pergunta.Pergunta;
+import Dominio.Resposta.Resposta;
+import Dominio.Usuario.Usuario;
 
 /**
  * @author Leandro
@@ -16,14 +23,28 @@ import Dominio.Anexo.Anexo;
 public class AnexoTest {
 
 	private Anexo a;
+	
+	
+	@Before
+	public void setup() {
+		a = new Anexo();		
+	}
+	
+	@After
+	public void tearDown(){
+		a = null;
+	}
+	
+	
 
 	/**
 	 * Test method for {@link Dominio.Anexo.Anexo#getAnexo()}.
 	 */
 	@Test
 	public void testSetGetAnexo() throws Exception {
-		a.setAnexo("Um Anexo");
-		assertEquals(a.getAnexo(), "Um Anexo");
+		String s = "Um Anexo";
+		a.setAnexo(s);
+		assertEquals(a.getAnexo(), s);
 	}
 
 		/**

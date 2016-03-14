@@ -3,58 +3,17 @@
  */
 package testes.Dominio.Resposta;
 
-import java.util.List;
-
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
-
-import Dominio.Anexo.Anexo;
-import Dominio.Pergunta.Pergunta;
-import Dominio.Resposta.Resposta;
-import Dominio.Usuario.Usuario;
 
 /**
  * @author Leandro
  *
  */
-@RunWith(MockitoJUnitRunner.class)
 public class RespostaTest {
-	@Mock
-	private List<Anexo> anexo;
 
-	@Mock
-	private Usuario autor;
 
-	@Mock
-	private String descricao;
 
-	@Mock
-	private boolean escolhida;
-
-	@Mock
-	private long id;
-
-	@Mock
-	private Anexo m_Anexo;
-
-	@Mock
-	private Usuario m_Usuario;
-
-	@Mock
-	private double numeroHoras;
-
-	@Mock
-	private Pergunta pergunta;
-
-	@Mock
-	private double valor;
-	@InjectMocks
-	private Resposta resposta;
-
-	/**
+/**
 	 * Test method for {@link Dominio.Resposta.Resposta#getAnexo()}.
 	 */
 	@Test

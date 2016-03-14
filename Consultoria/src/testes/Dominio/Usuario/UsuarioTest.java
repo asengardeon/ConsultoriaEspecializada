@@ -1,18 +1,13 @@
 package testes.Dominio.Usuario;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
 
 import Dominio.Pergunta.Pergunta;
 import Dominio.Resposta.Resposta;
@@ -90,6 +85,8 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetAgencia() throws Exception {
+		u.setAgencia("OP1");
+		assertEquals(u.getAgencia(), "OP1");
 		
 	}
 
@@ -100,6 +97,8 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetBanco() throws Exception {
+		u.setBanco(3);
+		assertEquals(u.getBanco(), 3);
 		
 	}
 
@@ -110,7 +109,8 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetConta() throws Exception {
-		
+		u.setConta(456);
+		assertEquals(u.getConta(), 456);
 	}
 
 	@Test
@@ -120,7 +120,8 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetCpfcnpj() throws Exception {
-		
+		u.setCpfcnpj("12345678912");
+		assertEquals(u.getCpfcnpj(), "12345678912");	
 	}
 
 	@Test
@@ -130,6 +131,10 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetDataNascimento() throws Exception {
+		@SuppressWarnings("deprecation")
+		Date d = new Date(2013, 01, 30);
+		u.setDataNascimento(d);
+		assertEquals(u.getDataNascimento(), d);
 		
 	}
 
@@ -140,6 +145,8 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetDigitoContaCorrente() throws Exception {
+		u.setDigitoContaCorrente('c');
+		assertEquals(u.getDigitoContaCorrente(), 'c');
 		
 	}
 
@@ -150,16 +157,20 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetEmail() throws Exception {
-		
+		u.setEmail("novo@porai.com");
+		assertEquals(u.getEmail(), "novo@porai.com");
 	}
 
 	@Test
 	public void testGetFeedBack() throws Exception {
 		assertEquals(u.getFeedBack(), FEEDBACK);
+		
 	}
 
 	@Test
 	public void testSetFeedBack() throws Exception {
+		u.setFeedBack(23);
+		assertEquals(u.getFeedBack(), 23);
 		
 	}
 
@@ -170,6 +181,8 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetFoto() throws Exception {
+		u.setFoto((byte)7);
+		assertEquals(u.getFoto(), (byte)7);
 		
 	}
 
@@ -180,6 +193,8 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetId() throws Exception {
+		u.setId(10);
+		assertEquals(u.getId(), 10);
 		
 	}
 
@@ -190,6 +205,8 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetNome() throws Exception {
+		u.setNome("João");
+		assertEquals(u.getNome(), "João");
 		
 	}
 
@@ -201,25 +218,13 @@ public class UsuarioTest {
 	@Test
 	public void testSetNumeroResidencia() throws Exception {
 		
+		u.setNumeroResidencia(874);
+		assertEquals(u.getNumeroResidencia(), 874);
+		
 	}
 
 	@Test
 	public void testGetPerguntas() throws Exception {
-		
-	}
-
-	@Test
-	public void testSetPerguntas() throws Exception {
-		
-	}
-
-	@Test
-	public void testGetRespostas() throws Exception {
-		
-	}
-
-	@Test
-	public void testSetRespostas() throws Exception {
 		
 	}
 
@@ -230,6 +235,8 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetTelefone() throws Exception {
+		u.setTelefone(1123);
+		assertEquals(u.getTelefone(), 1123);
 		
 	}
 
@@ -240,6 +247,8 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetTelefone2() throws Exception {
+		u.setTelefone2(88552);
+		assertEquals(u.getTelefone(), 88552);
 		
 	}
 
@@ -250,19 +259,11 @@ public class UsuarioTest {
 
 	@Test
 	public void testSetTipoUsuario() throws Exception {
-		
+		u.setTipoUsuario(TipoUsuario.usuario.ordinal());
+		assertEquals(u.getTipoUsuario(), TipoUsuario.usuario.ordinal());
 	}
 
-	@Test
-	public void testGetM_Categoria() throws Exception {
-		
-	}
-
-	@Test
-	public void testSetM_Categoria() throws Exception {
-		
-	}
-
+	
 	@Test
 	public void testUsuario() throws Exception {
 		

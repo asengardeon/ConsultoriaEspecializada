@@ -3,6 +3,8 @@
  */
 package testes.Dominio.Anexo;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import Dominio.Anexo.Anexo;
@@ -13,44 +15,25 @@ import Dominio.Anexo.Anexo;
  */
 public class AnexoTest {
 
+	private Anexo a;
+
 	/**
 	 * Test method for {@link Dominio.Anexo.Anexo#getAnexo()}.
 	 */
 	@Test
-	public void testGetAnexo() throws Exception {
-		throw new RuntimeException("not yet implemented");
+	public void testSetGetAnexo() throws Exception {
+		a.setAnexo("Um Anexo");
+		assertEquals(a.getAnexo(), "Um Anexo");
 	}
 
-	/**
-	 * Test method for {@link Dominio.Anexo.Anexo#setAnexo(java.lang.String)}.
-	 */
-	@Test
-	public void testSetAnexo() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
+		/**
 	 * Test method for {@link Dominio.Anexo.Anexo#getId()}.
 	 */
 	@Test
-	public void testGetId() throws Exception {
-		throw new RuntimeException("not yet implemented");
+	public void testSetGetId() throws Exception {
+		a.setId(99999);
+		assertEquals(a.getId(), 99999);
 	}
 
-	/**
-	 * Test method for {@link Dominio.Anexo.Anexo#setId(long)}.
-	 */
-	@Test
-	public void testSetId() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Dominio.Anexo.Anexo#Anexo()}.
-	 */
-	@Test
-	public void testAnexo() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
+	
 }
